@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      MVC Core Project - Complete Order Management System - Mizanur Rahman
+    </title>
+
+    <!-- Same CSS as your main portfolio -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <style>
+      /* Project page specific styles */
+      .project-header {
+        padding: 120px 0 60px;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          rgba(59, 130, 246, 0.1),
+          transparent
+        );
+      }
+
+      .project-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+
+      .project-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+      }
+
+      .project-meta-item i {
+        color: var(--accent);
+      }
+
+      .project-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .project-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 var(--spacing);
+      }
+
+      .project-section {
+        margin: 3rem 0;
+      }
+
+      .project-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+      }
+
+      .project-section h3 {
+        font-size: 1.5rem;
+        margin: 1.5rem 0 1rem;
+        color: var(--text-primary);
+      }
+
+      .project-image-full {
+        width: 100%;
+        border-radius: var(--border-radius);
+        margin: 2rem 0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1rem 0;
+      }
+
+      .tech-stack span {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        color: var(--text-primary);
+      }
+
+      .feature-list {
+        list-style: none;
+        margin: 1rem 0;
+      }
+
+      .feature-list li {
+        margin: 0.75rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        color: var(--text-secondary);
+      }
+
+      .feature-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+      }
+
+      .back-button {
+        display: inline-block;
+        margin: 2rem 0;
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+
+      .back-button:hover {
+        color: var(--accent);
+      }
+
+      .back-button i {
+        margin-right: 0.5rem;
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .image-grid img {
+        width: 100%;
+        border-radius: var(--border-radius);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .project-header h1 {
+          font-size: 2rem;
+        }
+
+        .project-meta {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .image-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Code snippet styling */
+      pre {
+        background: #1e293b;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      code {
+        color: #cbd5e1;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation (copy exactly from your index.html) -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="logo"
+          ><i class="fab fa-microsoft"></i> .NET</a
+        >
+        <ul class="nav-menu">
+          <li><a href="../index.html#home" class="nav-link">Home</a></li>
+          <li><a href="../index.html#work" class="nav-link">Work</a></li>
+          <li><a href="../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-toggle"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="project-header">
+      <div class="container">
+        <a href="../index.html#work" class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Projects
+        </a>
+        <h1>MVCCore_Project: Complete Order Management System</h1>
+        <p class="hero-description" style="max-width: 600px; margin: 0 auto">
+          A full-featured web application for managing products, customers, and
+          orders with granular permission-based authorization
+        </p>
+
+        <!-- Project Meta Info -->
+        <div class="project-meta">
+          <div class="project-meta-item">
+            <i class="far fa-calendar-alt"></i>
+            <span>February 2026</span>
+          </div>
+          <div class="project-meta-item">
+            <i class="fas fa-user"></i>
+            <span>Solo Project</span>
+          </div>
+          <div class="project-meta-item">
+            <i class="fas fa-code"></i>
+            <span>ASP.NET Core 8 / MVC / EF Core</span>
+          </div>
+        </div>
+
+        <!-- Project Links -->
+        <div class="project-links">
+          <a href="#" class="btn btn-primary" target="_blank">
+            <i class="fab fa-github"></i> View Code
+          </a>
+          <a href="#" class="btn btn-outline" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Project Image -->
+    <div class="container">
+      <img
+        src="../images/projects/order-management-main.png"
+        alt="MVCCore_Project main screenshot"
+        class="project-image-full"
+      />
+    </div>
+
+    <!-- Project Content -->
+    <div class="project-content">
+      <!-- Overview Section -->
+      <section class="project-section">
+        <h2>Overview</h2>
+        <p>
+          A complete business management solution built with ASP.NET Core 8 MVC.
+          The system enables businesses to manage their product inventory, track
+          customer information, and process orders with real-time stock
+          validation. What makes this project unique is its granular
+          permission-based authorization system that allows administrators to
+          control exactly what each user can see and do—down to individual
+          actions like "Create Product" or "Delete Order."
+        </p>
+      </section>
+
+      <!-- Technologies Used -->
+      <section class="project-section">
+        <h2>Technologies Used</h2>
+        <div class="tech-stack">
+          <span>ASP.NET Core 8</span>
+          <span>MVC Pattern</span>
+          <span>Entity Framework Core 8</span>
+          <span>SQL Server</span>
+          <span>ASP.NET Core Identity</span>
+          <span>jQuery / AJAX</span>
+          <span>Bootstrap 5</span>
+          <span>Newtonsoft.Json</span>
+          <span>Database-First Approach</span>
+          <span>Permission-Based Authorization</span>
+        </div>
+      </section>
+
+      <!-- The Challenge -->
+      <section class="project-section">
+        <h2>The Challenge</h2>
+        <p>
+          The main challenge was implementing a permission system that goes
+          beyond simple role-based authorization. I needed to create a system
+          where administrators could assign specific permissions to individual
+          users—for example, allowing a user to view products but not create
+          them, or create orders but not delete them. This required a custom
+          claims-based permission system that works seamlessly with Identity's
+          built-in authentication.
+        </p>
+      </section>
+
+      <!-- Solution & Features -->
+      <section class="project-section">
+        <h2>Solution & Features</h2>
+        <p>
+          I built a comprehensive MVC application with a clean separation of
+          concerns. The solution uses ASP.NET Core Identity for authentication,
+          extended with a custom permission system that stores user permissions
+          as claims. The UI dynamically adapts based on user permissions—menu
+          items and action buttons appear or disappear based on what the
+          logged-in user is allowed to do.
+        </p>
+
+        <h3>Key Features:</h3>
+        <ul class="feature-list">
+          <li>
+            <strong>Granular Permission System:</strong> Custom claims-based
+            authorization where each action (View, Create, Edit, Delete) has its
+            own permission that can be assigned to individual users via checkbox
+            interface
+          </li>
+          <li>
+            <strong>Complete Product Management:</strong> Full CRUD operations
+            with image upload, category filtering, real-time stock tracking, and
+            active/inactive status toggling
+          </li>
+          <li>
+            <strong>Intelligent Order Processing:</strong> Create and edit
+            orders with dynamic item addition/removal, automatic customer
+            creation/updating, and real-time stock validation before saving
+          </li>
+          <li>
+            <strong>Database-First with Migrations:</strong> Successfully
+            integrated with existing database schema while adding Identity
+            tables and managing schema changes without data loss
+          </li>
+          <li>
+            <strong>Responsive UI:</strong> Clean, modern interface built with
+            Bootstrap that works seamlessly on desktop and mobile devices
+          </li>
+          <li>
+            <strong>Transaction Management:</strong> All order operations
+            wrapped in database transactions to ensure data integrity during
+            stock updates
+          </li>
+        </ul>
+      </section>
+
+      <!-- Screenshots Gallery -->
+      <section class="project-section">
+        <h2>Screenshots</h2>
+        <div class="image-grid">
+          <img
+            src="../images/projects/products.png"
+            alt="Product management interface showing product list with edit/delete buttons"
+          />
+          <img
+            src="../images/projects/orders.png"
+            alt="Order creation form with dynamic product selection"
+          />
+          <img
+            src="../images/projects/permissions.png"
+            alt="Permission management interface with checkbox grid"
+          />
+          <img
+            src="../images/projects/roles.png"
+            alt="Role management page showing available roles"
+          />
+        </div>
+      </section>
+
+      <!-- Code Highlight -->
+      <section class="project-section">
+        <h2>Code Highlight: Custom Permission System</h2>
+        <p>
+          One of the most challenging and rewarding parts of this project was
+          implementing the granular permission system. Here's how I created a
+          custom authorization attribute that checks for specific permissions:
+        </p>
+        <pre><code>// Custom permission attribute
+public class PermissionAuthorizeAttribute : AuthorizeAttribute
+{
+    public PermissionAuthorizeAttribute(string permission)
+    {
+        Policy = permission; // Policy name is the permission itself
+    }
+}
+
+// Usage in controller
+[PermissionAuthorize(Permissions.ProductCreate)]
+public async Task&lt;IActionResult&gt; Create()
+{
+    // Only users with explicit "Product.Create" permission can access
+    return View();
+}
+
+// Dynamic policy registration in Program.cs
+builder.Services.AddAuthorization(options =>
+{
+    foreach (var permission in Permissions.GetAllPermissions())
+    {
+        options.AddPolicy(permission, policy =>
+            policy.Requirements.Add(new PermissionRequirement(permission)));
+    }
+});</code></pre>
+        <p>
+          This system allows administrators to assign permissions via a checkbox
+          interface, and the UI automatically adapts—buttons and menu items only
+          appear for users with the corresponding permissions.
+        </p>
+      </section>
+
+      <!-- What I Learned -->
+      <section class="project-section">
+        <h2>What I Learned</h2>
+        <p>
+          This project taught me invaluable lessons about building
+          production-ready web applications:
+        </p>
+        <ul class="feature-list">
+          <li>
+            <strong>EF Core Migrations:</strong> Deep understanding of managing
+            database schema changes while preserving existing data, including
+            handling foreign key constraints and proper drop ordering
+          </li>
+          <li>
+            <strong>Custom Authorization Systems:</strong> How to extend ASP.NET
+            Core Identity beyond simple roles to create granular,
+            permission-based access control
+          </li>
+          <li>
+            <strong>Transaction Management:</strong> Ensuring data integrity
+            with database transactions, especially critical for order processing
+            that involves multiple related tables
+          </li>
+          <li>
+            <strong>Client-Side State Management:</strong> Maintaining complex
+            UI state in JavaScript for dynamic order item management before
+            server submission
+          </li>
+          <li>
+            <strong>Problem-Solving:</strong> Debugging migration conflicts and
+            learning to manually manage the migration history table when needed
+          </li>
+        </ul>
+        <p>
+          I'm particularly proud of the permission system—it transforms a
+          standard CRUD application into a flexible business tool where
+          administrators have complete control over user access without any code
+          changes.
+        </p>
+      </section>
+
+      <!-- Back to Home -->
+      <div style="text-align: center; margin: 4rem 0">
+        <a href="../index.html" class="btn btn-primary">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2026 Mizanur Rahman. Built with
+          <i class="fas fa-heart"></i> and ASP.NET Core
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+  </body>
+</html>
