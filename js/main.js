@@ -81,17 +81,17 @@ window.addEventListener("scroll", updateActiveLink);
 window.addEventListener("load", updateActiveLink);
 
 // Form handling (prevents default, shows success message)
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+// const contactForm = document.getElementById("contactForm");
+// if (contactForm) {
+//   contactForm.addEventListener("submit", (e) => {
+//     e.preventDefault();
 
-    // Here you would normally send the form data to a backend
-    // For now, show a success message
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
+//     // Here you would normally send the form data to a backend
+//     // For now, show a success message
+//     const formData = new FormData(contactForm);
+//     const data = Object.fromEntries(formData);
 
-    console.log("Form submitted:", data);
+//     console.log("Form submitted:", data);
 
     // Show success message
     const submitBtn = contactForm.querySelector('button[type="submit"]');
